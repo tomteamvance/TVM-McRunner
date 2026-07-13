@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#c8102e" />
+  <meta name="description" content="McRun — a fast-food themed orientation waiting game." />
+  <title>McRun Orientation Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell" aria-live="polite">
+    <section id="screen-home" class="screen active">
+      <div class="hero-card">
+        <div class="logo-badge" aria-hidden="true">🍟</div>
+        <p class="eyebrow">ORIENTATION ARCADE</p>
+        <h1>McRun</h1>
+        <p class="tagline">Jump the rush. Grab the snacks. Own the leaderboard.</p>
+
+        <div class="player-form">
+          <label>
+            <span>Nickname or initials</span>
+            <input id="player-name" maxlength="16" autocomplete="nickname" placeholder="Optional" />
+          </label>
+          <label>
+            <span>Store number</span>
+            <input id="store-number" maxlength="8" inputmode="numeric" pattern="[0-9]*" placeholder="Optional" />
+          </label>
+        </div>
+
+        <button id="play-btn" class="primary-btn">Tap to Play</button>
+        <button id="leaderboard-btn" class="secondary-btn">View Leaderboard</button>
+
+        <div class="quick-help">
+          <span>Tap anywhere to jump</span>
+          <span>Double-tap for a higher jump</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-game" class="screen game-screen" aria-label="McRun game">
+      <header class="game-hud">
+        <div class="hud-pill"><small>SCORE</small><strong id="score-label">0</strong></div>
+        <div class="hud-pill"><small>BEST</small><strong id="best-label">0</strong></div>
+        <button id="sound-btn" class="icon-btn" aria-label="Toggle sound">🔊</button>
+        <button id="pause-btn" class="icon-btn" aria-label="Pause game">⏸</button>
+      </header>
+
+      <canvas id="game-canvas" width="390" height="680" aria-label="Endless runner game"></canvas>
+
+      <div id="countdown" class="countdown hidden">3</div>
+      <div id="milestone-banner" class="milestone-banner hidden" role="status" aria-live="assertive">
+        <div class="milestone-card">
+          <div id="milestone-icon" class="milestone-icon">🎉</div>
+          <p id="milestone-kicker">MILESTONE</p>
+          <h2 id="milestone-title">Congratulations!</h2>
+          <p id="milestone-copy">You reached 50,000 points!</p>
+        </div>
+      </div>
+      <div id="pause-overlay" class="overlay hidden">
+        <div class="overlay-card">
+          <h2>Paused</h2>
+          <button id="resume-btn" class="primary-btn">Resume</button>
+          <button id="quit-btn" class="secondary-btn">Quit Run</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-gameover" class="screen">
+      <div class="result-card">
+        <p class="eyebrow">RUN COMPLETE</p>
+        <h2 id="result-title">Nice run!</h2>
+        <div class="score-burst"><span id="final-score">0</span><small>points</small></div>
+        <p id="result-summary">You made it through the rush.</p>
+
+        <div id="rank-message" class="rank-message hidden"></div>
+
+        <div class="result-actions">
+          <button id="play-again-btn" class="primary-btn">Play Again</button>
+          <button id="results-leaderboard-btn" class="secondary-btn">Leaderboard</button>
+          <button id="home-btn" class="text-btn">Back to Start</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-leaderboard" class="screen">
+      <div class="leaderboard-card">
+        <div class="leaderboard-header">
+          <div>
+            <p class="eyebrow">TOP CREW</p>
+            <h2>Leaderboard</h2>
+          </div>
+          <button id="leaderboard-close" class="icon-btn" aria-label="Close leaderboard">✕</button>
+        </div>
+
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="device">This Device</button>
+          <button class="tab" data-tab="global">Global</button>
+        </div>
+
+        <div id="leaderboard-status" class="status-line"></div>
+        <ol id="leaderboard-list" class="leaderboard-list"></ol>
+
+        <p class="privacy-note">Only the nickname, optional store number, score, and date are saved.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
