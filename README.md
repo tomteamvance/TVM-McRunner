@@ -1,6 +1,6 @@
-# McRun Orientation Game
+# TVM Arcade — McRunner
 
-A mobile-first endless runner for orientation waiting areas.
+A simple mobile-first arcade page featuring McRunner.
 
 ## Included
 
@@ -16,12 +16,12 @@ A mobile-first endless runner for orientation waiting areas.
 
 ## Put it on GitHub Pages
 
-1. Create a public GitHub repository, such as `mcrun`.
+1. Create a public GitHub repository, such as `TVM-McRunner`.
 2. Upload `index.html`, `styles.css`, `game.js`, and `config.js` to the repository root.
 3. Open **Settings → Pages**.
 4. Choose **Deploy from a branch**.
 5. Select the `main` branch and `/root`, then save.
-6. Your address will look like `https://YOUR-USERNAME.github.io/mcrun/`.
+6. Your address will look like `https://YOUR-USERNAME.github.io/TVM-McRunner/`.
 
 ## Turn on the global leaderboard
 
@@ -92,3 +92,8 @@ During each run, the game displays a one-time celebration when the player reache
 - 100,000 points — **Legendary Run**
 
 These celebrations do not erase or modify leaderboard scores.
+
+
+## Simple first version
+
+This build intentionally includes one game, McRunner, with local high scores, optional store number, sound, and 50,000/100,000-point celebrations. It does not yet include an admin dashboard or shared online leaderboard.
